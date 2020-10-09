@@ -1,0 +1,124 @@
+$yellow : #FEDB4D;
+$blue : #4E7DF1;
+.createStore{
+    width: 100% !important;
+    background: white !important;
+    
+    &_form{
+        background: white !important;
+        padding: 30px;
+        width: 100% !important;
+        border-radius: 5px;
+
+        @media(max-width : 500px){
+            padding: 30px 10px;
+        }
+
+        label{
+            font-size: 14px;
+            font-family: Bold !important;
+        }
+
+        input, textarea{
+            box-shadow: none !important;
+            border: 1px solid transparent lightgray;
+            font-size: 14px;
+            height: 40px;
+            border-radius: 0px;
+
+            &:focus{
+                border: 1px solid lightskyblue;
+                box-shadow: 0 3px 3px -3px lightskyblue !important;
+            }
+        }
+
+        input[type=file]{
+            display: block;
+            border: 1px solid lightgray;
+            width: 100%;
+            border-radius: 0px;
+            height: 43px;
+        }
+
+        textarea{
+            height: 70px !important;
+        }
+
+        button{
+            width: 200px;
+            font-variant: small-caps;
+            height: 40px;
+            margin-top: 20px;
+            border: 1px solid #4E7DF1;
+            background: #4E7DF1;
+            color: white;
+            transition: .3s;
+            border-radius: 0px;
+            font-family: Regular;
+            cursor: pointer;
+
+            &:hover{
+                background: white;
+                color: #4E7DF1;
+            }
+
+            &:disabled{
+                background: #ccc;
+                color: #777;
+                border: none;
+                cursor: no-drop;
+            }
+        }
+    }
+}
+
+.half{
+    background: linear-gradient(135deg,#fffb00,rgb(0, 90, 45));
+    background-origin: border-box;
+    display: flex;
+    background-size: 100% 100%;
+    border-radius: 5px;
+    justify-content: center;
+    padding: 40px;
+    flex-direction: column;
+
+    @media(max-width:1199px){
+        display: none !important;
+    }
+
+    img{
+        width: 70%;
+        margin: 0px auto;
+    }
+
+    &_title{
+        font-family: Extra-bold;
+        color: white;
+        font-size: 40px;
+
+        span{
+            color: #facb10;
+            text-transform: uppercase;
+        }
+    }
+
+    p{
+        font-family:Bold;
+        font-size: 25px;
+        margin-top: 30px;
+        text-align: right;
+        color: #fac800;
+    }
+
+}
+
+
+::-webkit-file-upload-button{
+    background: #4E7DF1 !important;
+    color: white;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+    border-radius:0px;
+    padding: 10px ;
+}

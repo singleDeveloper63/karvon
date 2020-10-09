@@ -1,0 +1,177 @@
+.productInfo{
+  margin: 20px 0px;
+}
+
+.preview{
+  padding: 0px !important;
+  max-height: 350px;
+  position: relative;
+  background-color: #fff;
+
+  button{
+    position: absolute;
+    top: 45%;
+    z-index: 1;
+    width: 30px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    color: #1647c4;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover{
+      background: #4E7DF1;
+      color: white;
+    }
+
+    &:last-of-type{
+      right: 0px !important;
+    }
+  }
+
+  img{
+    width: 100% !important;
+    height: auto !important;
+    margin: auto 0px;
+    max-height: 350px;
+    object-fit: scale-down;
+  }
+}
+
+.price{
+  color: #4E7DF1;
+  font-weight: 900;
+  margin-bottom: 20px;
+  font-size: 23px;
+}
+
+.seller_info{
+  padding: 10px;
+  background: white;
+  font-variant: small-caps !important;
+  text-transform: lowercase;
+
+  h5{
+    font-size: 14px;
+    font-family: Bold;
+    padding: 5px 15px;
+  }
+
+  table{
+    td{
+      padding: 2px 5px;
+      font-weight: 600;
+      font-size: 13px;
+      a{
+        font-size: 13px;
+        margin: 0px 2.5px;
+
+        &:first-of-type{
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.sendMessage{
+  border: none ;
+  background: #4E7DF1;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  font-variant: small-caps;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform:lowercase;
+
+  i{
+    margin-right: 5px;
+  }
+
+  &:hover{
+    background: #1647c4;
+  }
+}
+
+.comment{
+  font-variant: small-caps;
+  text-transform: lowercase;
+  background: white;
+  border-radius: 5px;
+  padding: 20px;
+
+  h4{
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  label{
+    font-weight: 700;
+  }
+  
+  textarea{
+    height: 150px;
+    font-size: 16px;
+    box-shadow: none !important;
+  }
+
+  &_submit{
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #4E7DF1;
+    font-weight: 300;
+    font-size: 16px;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-weight: 600;
+    padding: 5px 15px;
+
+    &:disabled{
+      background: #ddd;
+      color: #777;
+    }
+  }
+}
+
+.comments_list{
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  background-color: white;
+  padding: 10px;
+  font-family: Regular;
+  position: relative;
+  border-radius: 5px;
+  margin: 15px 0px;
+
+  h5{
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  time{
+    font-size: 10px;
+    margin-left: auto !important;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #4E7DF1;
+  }
+  img{
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 100px !important;
+    display: inline-block;
+    margin-right: 10px !important;
+  }
+
+  &_header{
+    margin: 20px 0px;
+    font-size: 20px;
+  }
+}
