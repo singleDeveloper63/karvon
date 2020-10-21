@@ -56,15 +56,17 @@ const Median = (props) => {
 
                     <div className={cx(st.tools)}>
                         <figure>
-                            <Link>
+                            <Link to='/wishlist'>
                                 <img src={require('../../../img/tag.svg')} alt=""/>
                                 <figcaption> {lang.wishList} </figcaption>
+                                <span className={cx(st.badge , st.badge_wishlist)}> {props.cart.count>99 ? "99+" : props.cart.count} </span>
                             </Link>
                         </figure>
                         <figure>
-                            <Link>
+                            <Link to='/cart'>
                                 <img src={require('../../../img/cart.svg')} />
                                 <figcaption> {lang.cart} </figcaption>
+                                <span className={st.badge}> {props.cart.count>99 ? "99+" : props.cart.count} </span>
                             </Link>
                         </figure>
                     </div>

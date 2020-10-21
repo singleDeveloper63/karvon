@@ -1,107 +1,136 @@
 .product{
     width: 96%;
-    height: 360px;
-    margin:5px auto;
-    font-family: Regular;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    transition: .3s;
-    background: white !important;
-
-    @media(max-width:575px){
-        height: 320px;
-    }
-
+    height: 420px;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0px !important;
+    margin: 10px auto;
     &:hover{
-        box-shadow: 0px 6px 4px -3px rgba(0,0,0,0.3);
+        .product_link{
+            opacity: 1 !important;
+            a{
+                margin-top: 0px;
+                pointer-events: all;
+            }
+        }
     }
-    img{
-        width: 94% !important;
-        height: 200px;
-        object-fit: fill !important;
-        margin: 3% auto;
-        padding: 0px !important;
 
-        @media(max-width: 600px){
-            height: 170px;
-            border-radius: 0px;
+    @media(max-width:576px){
+        height: 300px;
+    }
+
+    &_link{
+        background: #85858596;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .6s;
+        opacity: 0 ;
+
+        a{
+            font-size: 16px;
+            color: black !important;
+            background: white;
+            padding: 10px 25px;
+            border-radius: 100px;
+            font-family: Regular;
+            margin-top: 200px;
+            pointer-events: none;
+            transition: .6s;
+
+            &::before{
+                position: absolute;
+                content: " ";
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+
+    &_head{
+        height: 300px;
+        position: relative;
+        @media(max-width:576px){
+            height: 200px;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
         }
     }
 
     &_body{
-        padding: 0px 10px;
-    }
-
-    &_price{
-        text-align: center;
-        color:rgb(0, 153, 255);
-        font-size: 15px;
-        font-weight: 900;
-        margin-top: 10px;
-
-        @media(max-width:600px){
-            font-size: 12px;
-        }
-
-        &::after{
-            content: "SUM";
+        padding: 10px;
+        @media(max-width: 415px){
+            padding: 0px;
         }
     }
 
     &_title{
+        font-size: 13px;
+        font-family: Bold;
+        white-space: nowrap;
         text-align: center;
-        font-size: 14px;
-        display: block;
-        line-clamp: 3;
-        -webkit-line-clamp: 3;
         overflow: hidden;
-        display : block;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        color: black !important;
-        font-family: Regular;
-        text-overflow: ellipsis;
-        font-weight: 600;
+        text-overflow:ellipsis;
+        padding: 0px 20px;
+    }
 
-        &:after{
-            position: absolute;
-            content: " ";
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: auto;
-            display: block;
-        }
+    &_price{
+        font-family: Extra-bold;
+        text-align: center;
+    }
+    
+    &_new{
+        position: absolute;
+        left: 0px;
+        top: 5px;
+        font-size: 14px;
+        color: white;
+        background: #13D905;
+        border-radius: 0px 100px 100px 0px;
+        padding: 3px 9px;
+    }
+}
 
-        &:hover{
-            color: #4E7DF1 !important;
-            text-decoration: underline !important;
+.flat{
+    border: none;
+    background: transparent;
+    color: #4E7DF1;
+    font-size: 20px;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0px !important;
+    border-radius: 100px !important;
+    cursor: pointer;
+    transition: .6s;
+
+    &:hover{
+        background: #4E7DF166;
+        transform: scale(1.1);
+    }
+}
+
+.rating{
+    font-size: 10px !important;
+    @media(max-width:705px){
+        i{
+            font-size: 14px !important;
         }
     }
 
-    button{
-        position: absolute;
-        width: fit-content;
-        left: 10px;
-        font-variant: small-caps;
-        right: 10px;
-        border: none;
-        padding: 5px 10px;
-        background: #4E7DF1;
-        cursor: pointer;
-        color: white;
-        border-radius: 5px;
-        display: block !important;
-        margin: 0px auto !important;
-        bottom: 10px;
-
-        transition: .3s;
-
-        &:hover{
-            background: #0646e9;
+    @media(max-width: 415px){
+        i{
+            font-size: 12px !important;
         }
     }
 }

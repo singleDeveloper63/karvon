@@ -297,3 +297,24 @@
         }
     }
 }
+
+
+.badge{
+    position: absolute;
+    background: #dc3545;
+    top: -10px;
+    right: -10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: white;
+    font-size: 10px;
+    display: flex;
+    font-family: Bold;
+    justify-content: center;
+    align-items: center;
+
+    &_wishlist{
+        background: #28a745;
+    }
+}

@@ -9,9 +9,8 @@ import { categoryApi } from './service/categoryService';
 import { productApi } from './service/productService';
 import { storeApi } from './service/storeService';
 import { Loader } from './components';
-import 'animate.css/animate.min.css';
 
-import { Home, ProductInput, Blogs, Blog, SignUp , Categories, Categori, Product , Reset, Profil, ProfilChange, Entercode , CreateStore , Store , Products} from './pages'
+import { Home, Blogs, Blog, SignUp ,  Product , Reset, Profil , Entercode , CreateStore , Store , Products , Cart , WishList} from './pages'
 
 class App extends Component {
 	state = {
@@ -47,7 +46,6 @@ class App extends Component {
                     <Switch>
                         <Layout>
                             <Route exact path='/' exact component={Home} />
-                            <Route exact path='/product-input'  component={ProductInput} />
                             <Route exact path='/blogs/'  component={Blogs} />
                             <Route exact path='/blogs/:id'  component={Blog} />
                             <Route exact path='/sign-up' component={SignUp} />
@@ -58,6 +56,8 @@ class App extends Component {
                             <Route exact path='/entercode' component={Entercode}/>
                             <Route exact path='/profile/createStore' component={ CreateStore }/>
                             <Route exact path='/market' component={ Store }/>
+                            <Route exact path='/cart' component={Cart}/>
+                            <Route exact path='/wishlist' component={ WishList } />
                         </Layout>
                     </Switch>
                 </div>

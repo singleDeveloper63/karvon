@@ -1,0 +1,201 @@
+.cart{
+    &>div{
+        padding: 40px 0px;
+    }
+
+    &_items{
+        background: #fff;
+        padding: 20px;
+
+        &_list{
+            padding: 0;
+            margin: 0;
+            overflow-x: scroll;
+        }
+
+        h1{
+            font-family: bold;
+            font-size: 20px;
+            padding-bottom: 5px;
+            text-transform: lowercase;
+            font-variant: small-caps;
+            position: relative;
+
+            &::before{
+                position: absolute;
+                content: '';
+                width: 40px;
+                height: 2px;
+                background: #4E7DF1;
+                bottom: 0px;
+                left: 0px;
+            }
+        }
+    }
+
+    table{
+        font-size: 16px;
+        font-family: Regular;
+        width: 100%;
+        img{
+            max-width: 70px;
+        }
+        th{
+            text-transform: uppercase;
+            font-variant: small-caps;
+            color: #4E7DF1;
+        }
+
+        th,td{
+            padding: 10px;
+            text-align: center;
+        }
+        td{
+            font-size: 12px;
+            min-width: 100px;
+        }
+        tr{
+            border-bottom: 1px solid lightgray;
+        }
+    }
+
+    &_item_price{
+        max-width: 300px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    &_shipping{
+        background: white;
+        font-family: Regular;
+        padding: 20px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 10px;
+
+        &>h4{
+            font-family: bold;
+            font-size: 20px;
+            padding-bottom: 5px;
+            text-transform: lowercase;
+            font-variant: small-caps;
+            position: relative;
+
+            &::before{
+                position: absolute;
+                content: '';
+                width: 40px;
+                height: 2px;
+                background: #4E7DF1;
+                bottom: 0px;
+                left: 0px;
+            }
+        }
+
+        ul{
+            font-variant: small-caps;
+            list-style: none;
+            margin-top: 20px;
+            text-transform: lowercase;
+            font-size: 13px;
+            padding: 0px 0px;
+
+            li{
+                border-bottom: 1px dotted gray;
+                display: flex;
+                justify-content: space-between;
+                font-family: Bold;
+            }
+
+            span{
+                color: #4E7DF1;
+            }
+        }
+
+        a{
+            width: 100%;
+            text-decoration: none !important;
+            font-size: 18px;
+            text-align: center;
+            display: block;
+            padding: 10px ;
+            border: none;
+            background: #FEDB4D;
+            color: black;
+            font-family: Bold;
+            font-variant: small-caps;
+            text-transform: lowercase;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    }
+}
+
+.counter{
+    width: 110px;
+    button{
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        font-family: Extra-bold;
+        border-radius: 100px;
+        border: none;
+        color: white;
+        background: #4E7DF1;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    input{
+        width: 40px;
+        height: 30px;
+        border: none;
+        padding-left: 10px;
+        font-size: 16px;
+        pointer-events: none;
+        text-align: center;
+    }
+}
+
+.deleter{
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: tomato;
+    color: white;
+    font-size: 16px;
+    border-radius: 50%;
+    transition: .3s;
+
+    &:hover{
+        background: transparent;
+        color: tomato;
+        border: 1px solid tomato;
+        transform: scale(1.2);
+    }
+}
+
+.empty{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0px;
+
+    img{
+        max-width: 160px;
+    }
+
+    p{
+        font-family: Regular;
+        font-size: 20px;
+        margin-top: 20px;
+        text-align: center;
+        max-width: 400px;
+        font-variant: small-caps;
+        text-transform: lowercase;
+    }
+}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import decode from 'jwt-decode';
-const api = 'http://umdsoft.uz/api/product';
+const api = 'http://cdn.umdsoft.uz/api/product';
 const headers = {
     "Authorization" : `Bearer ${localStorage.getItem('token')}`
 }
@@ -26,7 +26,7 @@ export const productApi = {
     postComment : (cost,productId, comment) =>{
         if(userID){
             return new Promise((resolve,reject)=>{
-                axios.post('http://umdsoft.uz/api/rating/product',{
+                axios.post('http://cdn.umdsoft.uz/api/rating/product',{
                 user : userID,
                 product : productId,
                 cost : cost}, { headers })

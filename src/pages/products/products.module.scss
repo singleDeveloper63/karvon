@@ -1,12 +1,14 @@
 .products{
-    background: #eee;
-    padding: 30px 0px;
+    background: #fff;
+    margin: 10px 0px;
+    padding: 30px 20px;
+    border-radius: 5px;
 }
 
 .section_title{
-    font-family: Extra-bold;
+    font-family: Regular;
     font-size: 25px;
     position: relative;
     padding-bottom: 10px;
-    border-bottom: 3px solid #FEDB4D;
+    border-bottom: 1px solid lightgray;
 }

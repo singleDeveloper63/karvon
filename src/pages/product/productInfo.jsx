@@ -11,14 +11,15 @@ import parser from 'react-html-parser';
 import carouselImg2 from './../../img/aksi_2.jpg'
 import Swal from 'sweetalert2';
 import user from '../../img/user.png';
+import comment from '../../img/comment.svg';
 
 function ProductWithAction(props){
+
     const [id] = useState(props.match.params.id);
     const [product,setProduct] = useState({});
     const [comments,setComments] = useState([]);
-
     const [request,setRequest] = useState(true);
-
+    const [hasInCart , setHasInCart] = useState(false);
     const slider = createRef();
 
     function update(){
@@ -29,10 +30,15 @@ function ProductWithAction(props){
                 setRequest(false)
             })
     }
+    
 
     useEffect(()=>{
         productApi.getProductById(id)
             .then( res =>{
+                const isHave = props.cart.items.find( item => item.product._id === res.data.product[0]._id);
+                if(isHave){
+                    setHasInCart(true)
+                }
                 setProduct(res.data.product[0]);
                 setComments(res.data.comment);
                 setRequest(false)
@@ -122,7 +128,18 @@ function ProductWithAction(props){
                                 </tbody>
                             </table>
                         </div>
-                        <button className={st.sendMessage}> <i className="fa fw fa-paper-plane"></i> Xabar jo'natish</button>
+                        <div className={st.actions}>
+                            <button  onClick={ (e) => {
+                                if(hasInCart){
+                                    Swal.fire("Eslatma !","Maxsulot savatchada mavjud. Siz savatchaga o'tib uning miqdorini ko'paytirishingiz yoki kamaytirishingiz mumkun","warning");
+                                }else{
+                                    setHasInCart(true);
+                                    props.addToCart({ count : 1 , product : { image : product.images[0] , title : product.title, price : product.price , _id : product._id } });
+                                    Swal.fire("Qo'shildi" , "Maxsulot savatchaga qo'shildi" , "success");
+                                }
+                            }}> <i className="fa fw fa-shopping-cart"></i> Savatchaga <span>+1</span></button>
+                            <button> <i className="fa fa-fw fa-tag"></i> Yoqtirganlarga</button>
+                        </div>
                     </div>
                 </div>
                 <div className="row">
@@ -146,14 +163,25 @@ function ProductWithAction(props){
                             </div>
                             <div className="tab-pane fade" id="comments">
                                 <CommentPoster onSuccess={ val => update()} productId={product._id}/>
-                                <h4 className={st.comments_list_header}> Fikrlar </h4>
-                                {
-                                    comments.map((item,index)=>{
-                                        return(
-                                            <Comment data={item} key={index}/>
-                                        )
-                                    })
-                                }
+                                <div className="py-5">
+                                    {
+                                        comments.length > 0 ? 
+                                        <React.Fragment>
+                                            {
+                                                comments.map((item,index)=>{
+                                                    return(
+                                                        <Comment data={item} key={index}/>
+                                                    )
+                                                })
+                                            }
+                                        </React.Fragment>
+                                        :
+                                        <div className={st.no_comment}>
+                                            <img src={comment} alt="none"/>
+                                            <p>Bu maxsulot uchun bildirilgan fikrlar mavjud emas . Birinchi bo'lib fikr bildiring  .</p>
+                                        </div>
+                                    }
+                                </div>
                             </div>
                         </div> 
                     </div>         
@@ -164,8 +192,12 @@ function ProductWithAction(props){
 }
 
 const mstp = state => (state);
-
-export default connect(mstp,null)(ProductWithAction);
+const mdtp = dispatch => ({
+    addToCart : (payload) =>{
+        dispatch({ type : "ADD_TO_CART" , payload : payload })
+    }
+})
+export default connect(mstp,mdtp)(ProductWithAction);
 
 
 

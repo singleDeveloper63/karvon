@@ -1,5 +1,5 @@
 @import '../node_modules/boxicons/css/boxicons.min.css';
-
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
 @font-face{
     font-family: Regular;
     src: url(./fonts/Montserrat-Regular.ttf);
@@ -135,3 +135,82 @@ div.ql-editor:focus{
     font-weight: 800;
     color: black !important;
 }
+
+  
+button[tooltip]{
+    z-index: 1;
+}
+  button[tooltip] .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #2a60ebd7;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    font-size: 12px;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  button[tooltip] .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2a60ebd7 transparent transparent transparent;
+  }
+  
+  button[tooltip]:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @media(min-width:1200px){
+    .colxl2{
+        width: 20%;
+    }
+  }
+
+
+  .anim{
+      position: relative;
+  }
+
+  .anim span{
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      font-size: 20px;
+      width: 40px;
+      font-family: Bold;
+      height: 40px;
+      border-radius: 100px;
+      background: linear-gradient(134deg , rgb(0, 132, 255) , rgb(5, 175, 82));
+      top: -10px;
+      right: -10px;
+      animation: hide 2s ease forwards;
+  }
+
+  @keyframes hide{
+      from{
+          top: -10px;
+          right: -10px;
+          opacity: 1;
+          transform: none;
+      }
+
+      to{
+          transform: scale(4);
+          opacity: 0;
+          display: none;
+      }
+  }

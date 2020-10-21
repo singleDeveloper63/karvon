@@ -18,8 +18,8 @@ function Products(props){
         setProductList(props.products.data)
     },[props])
     return(
-        <div className={st.products}>
-            <div className="container">
+        <div className="container">
+            <div className={st.products}>
                 {
                     request && <InnerLoader/>
                 }
@@ -28,7 +28,7 @@ function Products(props){
                     {
                         productList.map((item,index) => {
                             return(
-                                <div key={index} className="col-6 col-sm-4 col-md-3 p-0">
+                                <div key={index} className="col-6 col-sm-4 col-md-3 colxl2 p-0">
                                     <Product data={item}/>
                                 </div>
                             )
