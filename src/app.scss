@@ -35,12 +35,11 @@ body{
 	font-size:1.4rem;
 	font-weight:400;
     font-family: 'Montserrat', sans-serif;
-    background: rgba(243, 239, 239, 0.959) !important;
 }
 
 
 .container{
-
+    
     @media(max-width:992px){
         max-width:100%;
     }
@@ -71,4 +70,16 @@ button{
 
 .page_title{
     font-family: Bold !important;
+}
+
+.row{
+    margin: 0px 0px !important;
+}
+
+.page-contents{
+    padding: 0px 50px;
+
+    @media(max-width: 950px){
+        padding: 0px 10px;
+    }
 }

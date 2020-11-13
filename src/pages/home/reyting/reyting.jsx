@@ -28,7 +28,7 @@ const Reyting = ({ lang }) => {
     
     return (
         <div className={cx(st.reyting)}>
-            <div className={cx('container')}>
+            <div>
                 <h1 className={cx('home_blog_title')}> {lang.lang.rate} </h1>
                 <div className={cx('row')}>
                     {card}

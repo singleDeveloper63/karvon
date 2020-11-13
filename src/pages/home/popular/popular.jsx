@@ -35,7 +35,7 @@ const Popular = ({lang}) => {
     
     return (
         <div className={cx(st.popular)}>
-            <div className={cx('container')}>
+            <div>
                 <h1 className={cx('home_blog_title')}>  {lang.lang.popularServices} </h1>
                 <div className={cx('row')}>
                     {card}

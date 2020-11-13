@@ -11,3 +11,4 @@ export { default as Store } from './Stores/store';
 export { default as Products } from './products/products';
 export { default as Cart }  from './cart/cart';
 export { default as WishList } from './wishlist/wishlist';
+export { default as OneStore } from './store/store';

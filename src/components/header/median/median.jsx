@@ -25,14 +25,13 @@ const Median = (props) => {
 
     return (
         <div className={cx(st.median)}>
-            <div className={cx('container', st.row)}>
+            <div className={cx( st.row)}>
                 <div className={cx(st.logo_content)}>
-                    <Link className={cx(st.logo)} to='/'>
+                    <Link className={cx(st.logo,"d-none d-md-inline-block")} to='/'>
                         Karvon
                     </Link>
                 </div>
                 <div className={cx(st.search_content)}>
-                    
                     <div className={cx(st.form_group)}>
                         <div className={cx('input-group')}>
                             <input type="text" placeholder={ lang.search } className={cx(st.input, 'form-control')} required />
@@ -59,7 +58,7 @@ const Median = (props) => {
                             <Link to='/wishlist'>
                                 <img src={require('../../../img/tag.svg')} alt=""/>
                                 <figcaption> {lang.wishList} </figcaption>
-                                <span className={cx(st.badge , st.badge_wishlist)}> {props.cart.count>99 ? "99+" : props.cart.count} </span>
+                                <span className={cx(st.badge , st.badge_wishlist)}> {props.wishlist.count>99 ? "99+" : props.wishlist.count} </span>
                             </Link>
                         </figure>
                         <figure>

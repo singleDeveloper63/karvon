@@ -3,11 +3,6 @@ const api = 'http://cdn.umdsoft.uz/api/auth/'
 
 export const authApi = {
     register : data => {
-        
-        axios.interceptors.request.use( conf => {
-            console.log(conf)
-            return conf;
-        })
         return axios.post(`${api}register`,data)
     },
     login : data => {

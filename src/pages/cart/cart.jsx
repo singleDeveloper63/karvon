@@ -1,4 +1,4 @@
-import React , { useState , useEffect } from 'react';
+import React , { useState , useEffect, createRef } from 'react';
 import st from './cart.module.scss';
 import { connect } from 'react-redux';
 import cl from 'classnames';
@@ -47,9 +47,6 @@ function Cart(props){
     )
 
     function Shipping(){
-        useEffect(()=>{
-            console.log(Price())
-        },[])
 
         return(
             <div className={st.cart_shipping}>
@@ -109,22 +106,36 @@ function Cart(props){
                     { 
                         items.map((item,index)=>{
                             return(
-                                <tr>
-                                    <td> {index+1} </td>
-                                    <td> <img src={`http://umdsoft.uz${item.product.image}`} alt=""/> </td>
-                                    <td className={st.cart_item_price}> { item.product.title['uz'] } </td>
-                                    <td> {format(item.product.price)} SUM</td>
-                                    <td> <Counter onChange={ val => {
-                                        props.changeCount({count : val , id : item.product._id})
-                                    }} defaultValue={item.count}/></td>
-                                    <td> { format(String( Number(item.product.price.split(" ").join("")) * item.count )) } SUM </td>
-                                    <td> <button onClick={()=>props.removeItem(item.product._id)}  className={st.deleter}> <i className="fa fa-fw fa-trash"></i> </button> </td>
-                                </tr>
+                                <CreateItem item={item} index={index} key={`CartItem${index}`}/>
                             )
                         })
                     }
                 </tbody>
             </table>
+        )
+    }
+
+    function CreateItem({item,index}){
+
+        const itemRef = createRef();
+
+        return(
+            <tr ref={itemRef}>
+                <td> {index+1} </td>
+                <td> <img src={`http://umdsoft.uz${item.product.image}`} alt=""/> </td>
+                <td className={st.cart_item_price}> { item.product.title['uz'] } </td>
+                <td> {format(item.product.price)} SUM</td>
+                <td> <Counter onChange={ val => {
+                    props.changeCount({count : val , id : item.product._id})
+                }} defaultValue={item.count}/></td>
+                <td> { format(String( Number(item.product.price.split(" ").join("")) * item.count )) } SUM </td>
+                <td> <button onClick={()=>{
+                    itemRef.current.classList.add(st.hide);
+                    setTimeout(()=>{
+                        props.removeItem(item.product._id)
+                    },700)
+                }}  className={st.deleter}> <i className="fa fa-fw fa-trash"></i> </button> </td>
+            </tr>
         )
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './app.scss';
 import { Layout } from './hoc';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './fonts.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { connect } from 'react-redux';
@@ -10,7 +10,7 @@ import { productApi } from './service/productService';
 import { storeApi } from './service/storeService';
 import { Loader } from './components';
 
-import { Home, Blogs, Blog, SignUp ,  Product , Reset, Profil , Entercode , CreateStore , Store , Products , Cart , WishList} from './pages'
+import { Home, Blogs, Blog, SignUp , OneStore , Product , Reset, Profil , Entercode ,  Store , Products , Cart , WishList} from './pages'
 
 class App extends Component {
 	state = {
@@ -30,7 +30,8 @@ class App extends Component {
                             })
                     })
             })
-    }
+        }
+    
 
 	render(){
         if(this.state.isRequest){
@@ -45,19 +46,31 @@ class App extends Component {
                 <div className="app">
                     <Switch>
                         <Layout>
-                            <Route exact path='/' exact component={Home} />
-                            <Route exact path='/blogs/'  component={Blogs} />
-                            <Route exact path='/blogs/:id'  component={Blog} />
-                            <Route exact path='/sign-up' component={SignUp} />
-                            <Route exact path='/products' component={ Products }/>
-                            <Route exact path='/products/:id' exact component={Product} />
-                            <Route exact path='/profile' component={ Profil } />
-                            <Route exact path='/resetpassword' component={Reset}/>
-                            <Route exact path='/entercode' component={Entercode}/>
-                            <Route exact path='/profile/createStore' component={ CreateStore }/>
-                            <Route exact path='/market' component={ Store }/>
-                            <Route exact path='/cart' component={Cart}/>
-                            <Route exact path='/wishlist' component={ WishList } />
+                            <div className="page-contents">
+                                <Route exact path='/' exact component={Home} />
+                                <Route exact path='/blogs/'  component={Blogs} />
+                                <Route exact path='/blogs/:id'  component={Blog} />
+                                <Route exact path='/sign-up' component={SignUp} />
+                                <Route exact path='/products' component={ Products }/>
+                                <Route exact path='/products/:id' exact component={Product} />
+                                <Route exact path='/profile' render={()=>{
+                                    if(this.props.user.isLoggedIn){
+                                        return(
+                                            <Profil/>
+                                        )
+                                    }else{
+                                        return(
+                                            <Redirect to='/'/>
+                                        )
+                                    }
+                                }} />
+                                <Route exact path='/resetpassword' component={Reset}/>
+                                <Route exact path='/entercode' component={Entercode}/>
+                                <Route exact path='/market' component={ Store }/>
+                                <Route exact path='/cart' component={Cart}/>
+                                <Route exact path='/wishlist' component={ WishList } />
+                                <Route exact path='/market/:marketId' component={OneStore}/>
+                            </div>
                         </Layout>
                     </Switch>
                 </div>

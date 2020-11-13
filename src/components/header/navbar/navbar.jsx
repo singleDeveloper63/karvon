@@ -15,8 +15,6 @@ const Navbar = (props) => {
         {text: lang.home, to:'/'},
         {text: lang.onlineMarket, to:'/market'},
         {text:lang.products, to:'/products'},
-        {text:lang.rate, to:'/rating'},
-        {text:lang.myBusiness, to:'/my-business'},
         {text:lang.blog, to:'/blogs'},
         {text:lang.contacts, to:'/contact'}
     ]
@@ -30,7 +28,7 @@ const Navbar = (props) => {
     return (
         <React.Fragment>
             <div className={cx(st.navbar)}>
-                <div className={cx(st.row, 'container')}>
+                <div className={cx(st.row)}>
                     <div className={cx(st.col)}>
                         <Link className={cx(st.categori)} onClick={ () => setOpen(!open)}>
                             <i className={`bx bx-fw bx-${open ? "x" : "menu-alt-left"}`} style={{fontSize : "13px", marginRight : "3px"}}></i>
@@ -52,7 +50,11 @@ const Navbar = (props) => {
                 <div className={cx(st.darkley, shart ? st.block : st.none)}  onClick={() => setShart(false)}></div>
             </div>
             <div className={cx(st.relative)}>
-                <CategoryList data={props.category} open={ open } type={props.lang.type}/>
+                {
+                    open && <CategoryList onClose={()=>{
+                                setOpen(false)
+                            }} data={props.category} type={props.lang.type}/>
+                }
             </div>
         </React.Fragment>
     );

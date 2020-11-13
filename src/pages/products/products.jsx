@@ -25,22 +25,26 @@ function Products(props){
                 }
                 <h1 className={st.section_title}>Barcha maxsulotlar</h1>
                 <div className="row">
-                    {
-                        productList.map((item,index) => {
-                            return(
-                                <div key={index} className="col-6 col-sm-4 col-md-3 colxl2 p-0">
-                                    <Product data={item}/>
-                                </div>
-                            )
-                        })
-                    }
-                    <div className="col-12 d-flex justify-content-end">
-                        {
-                            props.products.pagination.prev && <button className={"btn-pagination"} onClick={()=>setPage(props.products.pagination.prev.page)}> <i className="bx bx-left-arrow-alt"></i> Oldingi </button>
-                        }
-                        {
-                            props.products.pagination.next && <button className={"btn-pagination"} onClick={()=>setPage(props.products.pagination.next.page)}> Keyingi <i className="bx bx-right-arrow-alt"></i></button>
-                        }
+                    <div className="col-12 col-md-8 col-xl-9">
+                        <div className="row">
+                            {
+                                productList.map((item,index) => {
+                                    return(
+                                        <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3 p-0">
+                                            <Product data={item}/>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div className="col-12 d-flex justify-content-end">
+                            {
+                                props.products.pagination.prev && <button className={"btn-pagination"} onClick={()=>setPage(props.products.pagination.prev.page)}> <i className="bx bx-left-arrow-alt"></i> Oldingi </button>
+                            }
+                            {
+                                props.products.pagination.next && <button className={"btn-pagination"} onClick={()=>setPage(props.products.pagination.next.page)}> Keyingi <i className="bx bx-right-arrow-alt"></i></button>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,4 +68,5 @@ const mdtp = dispatch => ({
         dispatch({type : "setProducts", payload : data})
     }
 })
+
 export default connect(mstp,mdtp)(Products)

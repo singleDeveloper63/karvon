@@ -45,7 +45,6 @@ a.active{
 
 .dropdown-menu-right{
     margin-top: 10px;
-    transition: .3s !important;
 }
 
 .dropdown-menu-right::after{
@@ -212,5 +211,11 @@ button[tooltip]{
           transform: scale(4);
           opacity: 0;
           display: none;
+      }
+  }
+
+  @media(max-width:620px){
+      .nav .nav-link.active{
+          font-size: 14px !important;
       }
   }

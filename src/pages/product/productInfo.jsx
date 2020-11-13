@@ -40,6 +40,7 @@ function ProductWithAction(props){
                     setHasInCart(true)
                 }
                 setProduct(res.data.product[0]);
+                console.log(res.data)
                 setComments(res.data.comment);
                 setRequest(false)
             })
@@ -205,16 +206,16 @@ function Tabs(){
     return(
         <ul className="nav nav-tabs py-3"role="tablist">
             <li className="nav-item">
-                <a className="nav-link active"data-toggle="tab" href="#offer">Takliflar va narxlar</a>
+                <a className={cl(st.navlist , "nav-link active")}data-toggle="tab" href="#offer">Takliflar va narxlar</a>
             </li>
             <li className="nav-item">
-                <a className="nav-link"data-toggle="tab" href="#info">Maxsulot haqida malumot</a>
+                <a className={cl(st.navlink,"nav-link")} data-toggle="tab" href="#info">Maxsulot haqida malumot</a>
             </li>
             <li className="nav-item" >
-                <a className="nav-link" data-toggle="tab" href="#description">Tarif</a>
+                <a className={cl(st.navlink,"nav-link")} data-toggle="tab" href="#description">Tarif</a>
             </li>
             <li className="nav-item" >
-                <a className="nav-link" data-toggle="tab" href="#comments">Fikrlar</a>
+                <a className={cl(st.navlink,"nav-link")} data-toggle="tab" href="#comments">Fikrlar</a>
             </li>
         </ul>
     )

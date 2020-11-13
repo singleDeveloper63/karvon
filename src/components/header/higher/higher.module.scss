@@ -1,7 +1,11 @@
 .higher{
     position:relative;
     background:#E7E7E7;
-    padding:.7rem 0;
+    padding:.7rem 50px;
+
+    @media(max-width: 950px){
+        padding: 0.7rem 15px;
+    }
 }
 
 .content{

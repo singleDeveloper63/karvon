@@ -1,35 +1,40 @@
-import React from 'react'
-import st from './premier.module.scss'
-import cx from 'classnames'
-import { Link } from 'react-router-dom'
-import {Sidebar} from '../../../components'
+import React, { createRef, useEffect } from 'react'
+import './premier.scss';
 import { connect } from 'react-redux';
+import Slider from 'react-slick'
 
 const Premier = (props) => {
 
+    const sliderRef = createRef();
+
     return (
-        <div className={cx(st.premier)}>
-            <div className={cx('container')}>
-                <div className={cx(st.row, 'row')}>   
-                    <div className={cx(st.col,'col-sm-12')}>
-                        <div className={cx(st.content)}>
-                            <div className={cx(st.content_box)}>
-                                <h1 className={cx(st.content_h1)}>
-                                    В Узбекистане инновационный портал
-                                </h1>
-                                <p className={cx(st.content_p)}>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto nulla alias, architecto, dignissimos error fugit mollitia totam ad tempore quo corrupti rem in nisi asperiores?
-                                </p>
-                                <Link to="" className={cx(st.content_link)}>
-                                    { props.lang.lang.details }
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+        <div className="slider-premier">
+            <div>
+                <div className="slider-content">
+                    <button onClick={()=>sliderRef.current.slickPrev()}> <i className="bx bx-chevron-left"></i> </button>
+                    <Slider ref={sliderRef} autoplay={true} autoplaySpeed={3000} dots={false} arrows={false} className="slider">
+                        {
+                            props.data.map((item,index)=>{
+                                return(
+                                    <Slide data={item} key={item._id}/>
+                                )
+                            })
+                        }
+                    </Slider>
+                    <button onClick={()=>sliderRef.current.slickNext()}> <i className="bx bx-chevron-right"></i> </button>
                 </div>
             </div>
         </div>
     );
+}
+
+function Slide({data}){
+    return(
+        <div className="slide">
+            <img src={`http://umdsoft.uz${data.image}`} alt={data._id}/>
+            <a href={data.url} target="_blank"></a>
+        </div>
+    )
 }
 
 const mstp = state => (state);

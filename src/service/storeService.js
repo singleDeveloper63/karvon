@@ -6,9 +6,12 @@ const headers = {
 
 export const storeApi = {
     getStores : () => {
-        return axios.get(`${api}all`,{ headers })
+        return axios.get(`${api}all`)
     },
     createStore : data =>{
         return axios.post(`${api}create`,data,{ headers })
+    },
+    getStoreById : id => {
+        return axios.get(`${api}${id}`)
     }
 }

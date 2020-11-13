@@ -89,6 +89,7 @@ const Profil = (props) => {
 function AddProduct({categories,props , onComplete}){
 
     const [request,setRequest] = useState(false);
+    const [type,setType] = useState("user");
     const [data,setData] = useState({
         titleuz : "",
         titleru : "",
@@ -104,6 +105,8 @@ function AddProduct({categories,props , onComplete}){
 
     useEffect(()=>{
         const id = decoder(localStorage.getItem('token')).id;
+        const type = decoder(localStorage.getItem("token")).role;
+        setType(type);
         props.stores.data.forEach((store)=>{
             if(store.director === id){
                 setData({...data , company : store._id})

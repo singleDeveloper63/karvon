@@ -14,7 +14,7 @@ const Footer = (props) => {
         <div className={cx(st.footer)}>
             {podpis()}
             <div className={cx(st.main)}>
-                <div className={cx('container px-5 px-md-0')}>
+                <div className={cx('px-5 px-md-0')}>
                     <div className={cx('row')}>
                         {location(lang)}
                         {kompaniya(lang)}              
@@ -166,7 +166,7 @@ const location = (lang) => {
 const podpis = () => {
     return(
         <div className={cx(st.podpis)}>
-            <div className={cx('container')}>
+            <div>
                 <div className={cx('row')}>
                     <div className={cx('col-md-5')}>
                         <div className={cx(st.podpis_box)}>

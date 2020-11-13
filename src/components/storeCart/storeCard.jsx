@@ -39,7 +39,7 @@ function StoreCard({data}){
                         <div>
                             <i className="bx bx-fw bx-phone"></i> 93 772-07-49
                         </div>
-                        <Link to='/'> Do'konni ko'rish </Link>
+                        <Link to={`/market/${data._id}`}> Do'konni ko'rish </Link>
                     </div>
                 </div>
             </div>

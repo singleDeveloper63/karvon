@@ -199,3 +199,30 @@
         text-transform: lowercase;
     }
 }
+
+.hide{
+    transition: .4s;
+    animation: ani .7s ease-out 1;
+    @keyframes ani{
+        0%{
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+        30%,60%{
+            opacity: 1;
+            transform: translateY(70px);
+        }
+        80%{
+            opacity: 1;
+            transform: translateY(-40px);
+        }
+        50%{
+            opacity: 1;
+            transform: translateY(50px);
+        }
+        100%{
+            opacity: 0;
+            transform: translateY(-170px);
+        }
+    }
+}

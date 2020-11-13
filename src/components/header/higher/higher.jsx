@@ -38,7 +38,7 @@ const lang = props.lang.lang;
             localStorage.setItem("token",token);
             setRequestProgress({ isRequest : false , isError : false })
             setToggle(false);
-            window.location.replace('/');
+            window.location.replace('/profile');
         } , err => {
             setRequestProgress({ isRequest : false , isError : true })
             console.log(err)
@@ -47,8 +47,7 @@ const lang = props.lang.lang;
 
     return (
         <div className={cx(st.higher)}>
-            
-            <div className={cx('container')}>
+            <div>
                 <div className={cx(st.content)}>
                     <div className={cx(st.box)}>
                         <a className={cx(st.link)} href="tel:+998917911122">
@@ -87,6 +86,7 @@ const lang = props.lang.lang;
                                     <a href="#" className="dropdown-item" onClick={ () => {
                                         localStorage.removeItem("token");
                                         props.isLoggedIn()
+                                        window.location.href = '/'
                                     }}> {lang.logout} </a>
                                 </div>
                             </div>

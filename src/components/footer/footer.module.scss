@@ -7,6 +7,11 @@
 .main{
     padding-top:3rem;
     background:#2B2B2B;
+    padding: 0px 50px;
+
+    @media(max-width: 950px){
+        padding: 0px 0px;
+    }
 }
 
 
@@ -121,12 +126,14 @@
 
 
 
-
-// podpis
 .podpis{
     position:relative;
     background:#4E7DF1;
-    padding:2rem 0;
+    padding: 2rem 50px;
+
+    @media(max-width: 950px){
+        padding: 2rem 10px;
+    }
 
 
     &_box{
